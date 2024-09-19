@@ -417,9 +417,6 @@ def _tobytes(tensor: torch.Tensor, name: str) -> bytes:
             " only the full tensors, and reslice at load time, or simply call `.contiguous()` on your tensor to"
             " pack it before saving."
         )
-    if tensor.device.type != "cpu":
-        # Moving tensor to cpu before saving
-        tensor = tensor.to("cpu")
 
     import ctypes
 
